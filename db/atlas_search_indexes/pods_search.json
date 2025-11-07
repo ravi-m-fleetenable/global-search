@@ -1,0 +1,39 @@
+{
+  "name": "pods_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "pods",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "pod_number": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "pod_number_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 15
+      },
+      "delivery_status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "driver_id": {
+        "type": "objectId"
+      },
+      "order_id": {
+        "type": "objectId"
+      },
+      "recipient_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "delivery_date": {
+        "type": "date"
+      }
+    }
+  }
+}

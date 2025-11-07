@@ -1,0 +1,55 @@
+{
+  "name": "accounts_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "accounts",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "account_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "account_name_autocomplete": {
+        "type": "autocomplete",
+        "analyzer": "lucene.standard",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 20,
+        "foldDiacritics": true
+      },
+      "company_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "company_name_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 20,
+        "foldDiacritics": true
+      },
+      "account_number": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "account_type": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "email": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "contact_person": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+development:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI'] || 'mongodb://localhost:27017/logistics_development' %>
+      options:
+        server_selection_timeout: 5
+        max_pool_size: 10
+        min_pool_size: 1
+        wait_queue_timeout: 5
+        connect_timeout: 10
+        socket_timeout: 10
+
+test:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI'] || 'mongodb://localhost:27017/logistics_test' %>
+      options:
+        server_selection_timeout: 5
+        max_pool_size: 5
+        min_pool_size: 1
+        wait_queue_timeout: 5
+
+production:
+  clients:
+    default:
+      uri: <%= ENV['MONGODB_URI'] %>
+      options:
+        server_selection_timeout: 30
+        max_pool_size: 50
+        min_pool_size: 5
+        wait_queue_timeout: 10
+        connect_timeout: 30
+        socket_timeout: 30
+        ssl: true
+        ssl_verify: true
+        retry_writes: true
+        w: majority

@@ -1,0 +1,50 @@
+{
+  "name": "drivers_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "drivers",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "full_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "full_name_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 20,
+        "foldDiacritics": true
+      },
+      "first_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "last_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "driver_id": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "license_number": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "email": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "assigned_fleet_id": {
+        "type": "objectId"
+      }
+    }
+  }
+}

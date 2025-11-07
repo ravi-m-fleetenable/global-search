@@ -1,0 +1,44 @@
+{
+  "name": "invoices_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "invoices",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "invoice_number": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "invoice_number_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 15
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "account_id": {
+        "type": "objectId"
+      },
+      "billing_id": {
+        "type": "objectId"
+      },
+      "invoice_date": {
+        "type": "date"
+      },
+      "due_date": {
+        "type": "date"
+      },
+      "payment_date": {
+        "type": "date"
+      },
+      "total_amount": {
+        "type": "number"
+      }
+    }
+  }
+}

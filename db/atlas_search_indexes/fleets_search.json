@@ -1,0 +1,65 @@
+{
+  "name": "fleets_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "fleets",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "vehicle_name": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "vehicle_name_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 20,
+        "foldDiacritics": true
+      },
+      "vin": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "vin_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 3,
+        "maxGrams": 17
+      },
+      "license_plate": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "license_plate_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 10
+      },
+      "make": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "model": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "vehicle_type": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "current_driver_id": {
+        "type": "objectId"
+      },
+      "year": {
+        "type": "number"
+      }
+    }
+  }
+}

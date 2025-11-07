@@ -1,0 +1,56 @@
+{
+  "name": "orders_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "orders",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "order_number": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "order_number_autocomplete": {
+        "type": "autocomplete",
+        "analyzer": "lucene.standard",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 15,
+        "foldDiacritics": true
+      },
+      "hawb_numbers": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "hawb_numbers_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 15
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "driver_id": {
+        "type": "objectId"
+      },
+      "assigned_dispatcher_id": {
+        "type": "objectId"
+      },
+      "account_id": {
+        "type": "objectId"
+      },
+      "fleet_id": {
+        "type": "objectId"
+      },
+      "created_at": {
+        "type": "date"
+      },
+      "updated_at": {
+        "type": "date"
+      }
+    }
+  }
+}

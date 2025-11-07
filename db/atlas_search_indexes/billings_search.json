@@ -1,0 +1,41 @@
+{
+  "name": "billings_search",
+  "searchAnalyzer": "lucene.standard",
+  "analyzer": "lucene.standard",
+  "collectionName": "billings",
+  "database": "logistics_production",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "billing_number": {
+        "type": "string",
+        "analyzer": "lucene.standard"
+      },
+      "billing_number_autocomplete": {
+        "type": "autocomplete",
+        "tokenization": "edgeGram",
+        "minGrams": 2,
+        "maxGrams": 15
+      },
+      "status": {
+        "type": "string",
+        "analyzer": "lucene.keyword"
+      },
+      "account_id": {
+        "type": "objectId"
+      },
+      "billing_date": {
+        "type": "date"
+      },
+      "due_date": {
+        "type": "date"
+      },
+      "amount": {
+        "type": "number"
+      },
+      "total_amount": {
+        "type": "number"
+      }
+    }
+  }
+}
